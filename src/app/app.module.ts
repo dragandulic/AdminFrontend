@@ -6,16 +6,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {enableProdMode} from '@angular/core';
+import { EncodersComponent } from './components/encoders/encoders.component';
 
 const appRoutes:Routes=[
- 
+  {path:'encoders',component:EncodersComponent},
+  {path:  '', redirectTo: '/encoders', pathMatch: 'full'},
   
   ];
 enableProdMode();
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    EncodersComponent
   ],
   imports: [
     BrowserModule,
