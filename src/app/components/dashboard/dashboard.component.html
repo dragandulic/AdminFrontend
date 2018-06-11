@@ -1,13 +1,13 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">Admin module</a>
+        <a class="navbar-brand">Admin module</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Encoders</a></li>
-        <li><a href="#">Comments</a></li>
-        <li><a href="#">Users</a></li>
-        <li><a href="#">Add Agent</a></li>
+        <li><a class="nav-link" [routerLink]="['/encoders']" [routerLinkActive]="['is-active']">Encoders</a></li>
+        <li><a class="nav-link" [routerLink]="['/comments']" [routerLinkActive]="['is-active']">Comments</a></li>
+        <li><a class="nav-link" [routerLink]="['/users']" [routerLinkActive]="['is-active']">Users</a></li>
+        <li><a class="nav-link" [routerLink]="['/addAgent']" [routerLinkActive]="['is-active']">Add Agent</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
