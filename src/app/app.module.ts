@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 
+
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {enableProdMode} from '@angular/core';
@@ -11,6 +12,10 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { UsersComponent } from './components/users/users.component';
 import { AddAgentComponent } from './components/addAgent/addAgent.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { UserService } from './shared-service/user.service';
+import {HttpModule} from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 const appRoutes:Routes=[
   {path:'encoders',component:EncodersComponent},
@@ -18,6 +23,7 @@ const appRoutes:Routes=[
   {path:'comments',component:CommentsComponent},
   {path:'users',component:UsersComponent},
   {path:'addAgent',component:AddAgentComponent},
+  {path:'login',component:LoginComponent},
   
   ];
 enableProdMode();
@@ -29,14 +35,17 @@ enableProdMode();
     CommentsComponent,
     UsersComponent,
     AddAgentComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [UserService,HttpModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
