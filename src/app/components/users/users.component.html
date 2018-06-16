@@ -10,27 +10,15 @@
             <th class="text-center">Action</th>
         </tr>
     </thead>
+        <ng-container *ngFor="let user of users">
             <tr>
-                <td>1</td>
-                <td>Marko</td>
-                <td>Juric</td>
-				<td>jurke95@gmail.com</td>
-                <td class="text-center"><a class='btn btn-warning btn-xs' href="#"><span class="glyphicon glyphicon-ban-circle"></span> Block</a> <a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-ok-circle"></span> Active</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove-circle"></span> Delete</a></td>
+                <td>{{user?.id}}</td>
+                <td>{{user?.name}}</td>
+                <td>{{user?.surname}}</td>
+				<td>{{user?.email}}</td>
+                <td class="text-center"><a *ngIf="user?.blocked==false" (click)="blockUser(user?.id)" class='btn btn-warning btn-xs' ><span class="glyphicon glyphicon-ban-circle"></span> Block</a> <a *ngIf="user?.blocked!==false" (click)="unblockUser(user?.id)" class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-ok-circle"></span> Activate</a> <a (click)="deleteUser(user?.id)" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove-circle"></span> Delete</a></td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Dragan</td>
-                <td>Dulic</td>
-				<td>dragandulic@gmail.com</td>
-                <td class="text-center"><a class='btn btn-warning btn-xs' href="#"><span class="glyphicon glyphicon-ban-circle"></span> Block</a> <a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-ok-circle"></span> Active</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove-circle"></span> Delete</a></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Saska</td>
-                <td>Dulic</td>
-				<td>saskadulic@gmail.com</td>
-                <td class="text-center"><a class='btn btn-warning btn-xs' href="#"><span class="glyphicon glyphicon-ban-circle"></span> Block</a> <a class='btn btn-success btn-xs' href="#"><span class="glyphicon glyphicon-ok-circle"></span> Active</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove-circle"></span> Delete</a></td>
-            </tr>
+        </ng-container>
     </table>
     </div>
 </div>
