@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {Agent} from '../../model/agent';
+import {AgentService} from '../../shared-service/agent.service';
 
 @Component({
   selector: 'app-addAgent',
@@ -10,26 +11,24 @@ import {Agent} from '../../model/agent';
 })
 export class AddAgentComponent implements OnInit {
 
-  private agent:Agent;
-  public form: FormGroup;
+  private agents=[];
+  
 
-  constructor() { }
+  constructor(private _agentService:AgentService) { }
 
   ngOnInit() {
-      console.log("addAgent");
-      this.form = new FormGroup({
-        firstName: new FormControl('',[Validators.required]),
-        lastName: new FormControl('', [Validators.required]),
-        email: new FormControl('',[Validators.required]),
-        pib: new FormControl('',[Validators.required])
-    })
+      this.reloadAgents();
   }
 
-  addAgentForm(){
-    console.log("Forma");
-    let agentFields = this.form.value;
-    this.agent = agentFields;
-    console.log(this.agent);
+  reloadAgents(){
+    this._agentService.getAgents().subscribe((data)=>{this.agents=data.agents;});
   }
+ 
+  approveAgent(id:any) {
+    this._agentService.approveAgent(id).subscribe(
+      (data:any)=>{  alert(data.message);this.reloadAgents();}
+      );
+  }
+ 
 
 }

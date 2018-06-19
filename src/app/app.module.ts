@@ -16,6 +16,8 @@ import { LoginComponent } from './components/login/login.component';
 import { UserService } from './shared-service/user.service';
 import {HttpModule} from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {AgentService} from './shared-service/agent.service';
+import {EncodersService} from './shared-service/encoders.service';
 
 const appRoutes:Routes=[
   {path:'encoders',component:EncodersComponent},
@@ -45,7 +47,7 @@ enableProdMode();
     HttpClientModule,
     HttpModule
   ],
-  providers: [UserService,HttpModule],
+  providers: [UserService,HttpModule,AgentService,EncodersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

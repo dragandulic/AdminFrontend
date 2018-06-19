@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Aaccommodation</h1>
+    <h1>Accommodation</h1>
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#home">Type</a></li>
       <li><a data-toggle="tab" href="#menu1">Categorization</a></li>
@@ -10,11 +10,11 @@
       <div id="home" class="tab-pane fade in active">
        <div class="container">
       
-       <form action="/action_page.php">
+       <form [formGroup]="form" (ngSubmit)="addType()">
           <div class="row">
                <div class="col-xs-2 col-sm-2 col-md-2">
                   <div class="form-group">
-                      <input type="text" name="Type" id="first_type" class="form-control input-sm" placeholder="Add type">
+                      <input formControlName="newType" type="text" name="Type" id="first_type" class="form-control input-sm" placeholder="Add type">
                   </div>
                </div>
                <div class="col-xs-2 col-sm-2 col-md-2">
@@ -22,15 +22,12 @@
                </div>
           </div>
        </form>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">Hotel</label>
-      </div>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">Bed&Brekfast</label>
-      </div>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">Apartman</label>
-      </div>
+       <ng-container *ngFor="let type of types">
+            <div class="checkbox">
+                  <label><input type="checkbox" value="">{{type}}</label>
+            </div>
+       </ng-container>
+    
       <button type="button" class="btn btn-danger">Delete</button>
      </div>
     </div>
