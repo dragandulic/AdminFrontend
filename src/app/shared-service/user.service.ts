@@ -28,9 +28,22 @@ const httpOptions = {
     )
   }
 
+  //COMMENTS
+    approveComment(id:any):Observable<any>{
+      return this.httpClient.post('http://localhost:8085/comment/approveComment/'+id,{})
+    }
+    unApproveComment(id:any):Observable<any>{
+      return this.httpClient.post('http://localhost:8085/comment/deleteComment/'+id,{})
+    }
+    getReviews():Observable<any> {
+      return this.httpClient.get('http://localhost:8085/review/getUnApprovedComments');
+    }
 
 
 
+    getUser(id:any):Observable<any> {
+      return this.httpClient.get('http://localhost:8085/reguser/getUser/'+id,{});
+   }
      getUsers():Observable<any> {
         return this.httpClient.get('http://localhost:8085/reguser/getUsers');
      }

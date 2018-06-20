@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../shared-service/user.service';
 
 @Component({
   selector: 'app-comments',
@@ -7,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsComponent implements OnInit {
 
-  constructor() { }
+  private reviews = [];
+
+  constructor(private _userService:UserService) { }
 
   ngOnInit() {
-      console.log("comments");
+      this.getReviews();
+  }
+
+  getReviews(){
+    this._userService.getReviews().subscribe((data)=>{this.reviews=data.reviews;});
+  }
+
+  approveComment(id:any){
+    this._userService.approveComment(id).subscribe((data)=>{alert(data.message),this.getReviews()});
+  }
+  unApproveComment(id:any){
+    this._userService.unApproveComment(id).subscribe((data)=>{alert(data.message),this.getReviews()});
   }
 
 }
