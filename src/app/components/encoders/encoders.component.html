@@ -22,23 +22,37 @@
                </div>
           </div>
        </form>
+       <table class="table">
+           <thead>
+            <tr>
+              <th>Type</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
        <ng-container *ngFor="let type of types">
-            <div class="checkbox">
-                  <label><input type="checkbox" value="">{{type}}</label>
-            </div>
+            <tr>
+             <td>
+                  <h3>{{type}}</h3>
+             </td>
+              <td> <h3><a (click)="deleteType(type)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                  </a></h3>
+              </td>
+        </tr>
        </ng-container>
-    
-      <button type="button" class="btn btn-danger">Delete</button>
+      </tbody>
+     </table>
      </div>
     </div>
       <div id="menu1" class="tab-pane fade">
         <div class="container">
       
-       <form action="/action_page.php">
+       <form [formGroup]="form2" (ngSubmit)="addCategory()">
           <div class="row">
                <div class="col-xs-2 col-sm-2 col-md-2">
                   <div class="form-group">
-                      <input type="text" name="categorization" id="categorization" class="form-control input-sm" placeholder="Add categorization">
+                      <input formControlName="newCategory" type="text" name="categorization" id="categorization" class="form-control input-sm" placeholder="Add category">
                   </div>
                </div>
                <div class="col-xs-2 col-sm-2 col-md-2">
@@ -46,26 +60,37 @@
                </div>
           </div>
        </form>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">Nekategorisan</label>
-      </div>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">1 Star</label>
-      </div>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">2-5 Stars</label>
-      </div>
-      <button type="button" class="btn btn-danger">Delete</button>
+       <table class="table">
+            <thead>
+             <tr>
+               <th>Type</th>
+               <th>Action</th>
+             </tr>
+           </thead>
+           <tbody>
+        <ng-container *ngFor="let category of categories">
+             <tr>
+              <td>
+                   <h3>{{category}}</h3>
+              </td>
+               <td> <h3><a (click)="deleteCategory(category)">
+                         <span class="glyphicon glyphicon-trash"></span>
+                   </a></h3>
+               </td>
+         </tr>
+        </ng-container>
+       </tbody>
+      </table>
      </div>
     </div>
       <div id="menu2" class="tab-pane fade">
         <div class="container">
        
-       <form action="/action_page.php">
+       <form [formGroup]="form3" (ngSubmit)="addAdditionalService()">
           <div class="row">
                <div class="col-xs-2 col-sm-2 col-md-2">
                   <div class="form-group">
-                      <input type="text" name="Additional services" id="Additional services" class="form-control input-sm" placeholder="Add additional services">
+                      <input formControlName="newAdditionalService" type="text" name="Additional services" id="Additional services" class="form-control input-sm" placeholder="Add additional services">
                   </div>
                </div>
                <div class="col-xs-2 col-sm-2 col-md-2">
@@ -73,16 +98,27 @@
                </div>
           </div>
        </form>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">Wifi</label>
-      </div>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">Parking</label>
-      </div>
-      <div class="checkbox">
-          <label><input type="checkbox" value="">TV</label>
-      </div>
-      <button type="button" class="btn btn-danger">Delete</button>
+       <table class="table">
+            <thead>
+             <tr>
+               <th>Type</th>
+               <th>Action</th>
+             </tr>
+           </thead>
+           <tbody>
+        <ng-container *ngFor="let additionalService of additionalServices">
+             <tr>
+              <td>
+                   <h3>{{additionalService}}</h3>
+              </td>
+               <td> <h3><a (click)="deleteAdditionalService(additionalService)">
+                         <span class="glyphicon glyphicon-trash"></span>
+                   </a></h3>
+               </td>
+         </tr>
+        </ng-container>
+       </tbody>
+      </table>
      </div>
     </div>
       

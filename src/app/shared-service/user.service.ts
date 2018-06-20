@@ -17,6 +17,20 @@ const httpOptions = {
    // private user:User;
      constructor(private httpClient:HttpClient) {}
 
+     //LOGIN ADMINA
+    loginAdmin(email:any,password:any) {
+    this.httpClient.post('http://localhost:8085/reguser/loginAdmin',
+    {email:email,
+     password:password
+    })
+    .subscribe(
+    (data:any)=>{ alert(data.message); }
+    )
+  }
+
+
+
+
      getUsers():Observable<any> {
         return this.httpClient.get('http://localhost:8085/reguser/getUsers');
      }

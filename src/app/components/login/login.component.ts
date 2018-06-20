@@ -31,11 +31,7 @@ export class LoginComponent implements OnInit {
   loginForm(){
     let loginfields = this.form.value;
     console.log(loginfields);
-   
-
-    //this._userService.loginUser(loginfields);
-   // window.location.reload(true);
-   // this._router.navigateByUrl("/");
+    this._userService.loginAdmin(loginfields.email,loginfields.password);
   }
 
 }

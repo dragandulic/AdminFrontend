@@ -23,5 +23,35 @@ const httpOptions = {
 
      addType(typeName:string):Observable<any> {
         return this.httpClient.post('http://localhost:8085/atypes/addType/'+typeName,{});
-    }
+     }
+
+     deleteType(typeName:string):Observable<any> {
+      return this.httpClient.delete('http://localhost:8085/atypes/deleteType/'+typeName,{});
+     }
+
+
+     getCategories():Observable<any> {
+      return this.httpClient.get('http://localhost:8085/category/getCategories');
+     }
+
+     addCategory(categoryName:string):Observable<any> {
+      return this.httpClient.post('http://localhost:8085/category/addCategory/'+categoryName,{});
+     }
+
+     deleteCategory(categoryName:string):Observable<any> {
+      return this.httpClient.delete('http://localhost:8085/category/deleteCategory/'+categoryName,{});
+     }
+
+
+     getAdditionalServices():Observable<any> {
+      return this.httpClient.get('http://localhost:8085/aservices/getAServices');
+     }
+
+     addAdditionalService(serviceName:string):Observable<any> {
+      return this.httpClient.post('http://localhost:8085/aservices/addService/'+serviceName,{});
+     }
+
+     deleteAdditionalService(serviceName:string):Observable<any> {
+      return this.httpClient.delete('http://localhost:8085/aservices/deleteService/'+serviceName,{});
+     }
   }    
