@@ -51,7 +51,7 @@ export class ReviewComponent implements OnInit {
     console.log(reviewfield.comment);
     this.rating=(this.cleanliness*1+this.comfort*1+this.facilities*1+this.location*1+this.staff*1+this.valueForMoney*1)/6;
     console.log(this.rating);
-    this._userService.addReview(this.rating,1,1,1).subscribe((data)=>{alert(data.message)});
+    this._userService.addReview(this.rating,1,reviewfield.comment,1).subscribe((data)=>{alert(data.message)});
     
   }
 }

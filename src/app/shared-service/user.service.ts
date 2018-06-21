@@ -29,11 +29,11 @@ const httpOptions = {
   }
 
   //RAITING
-  addReview(rating:any,userid:any,commentid:any,accommodationid:any):Observable<any>{
+  addReview(rating:any,userid:any,commentcontent:any,accommodationid:any):Observable<any>{
     return this.httpClient.post('http://localhost:8085/review/addReview',{
     rating:rating,
     userid:userid,
-    commentid:commentid,
+    commentcontent:commentcontent,
     accommodationid:accommodationid
     })
   }
