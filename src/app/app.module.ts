@@ -18,6 +18,7 @@ import {HttpModule} from '@angular/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {AgentService} from './shared-service/agent.service';
 import {EncodersService} from './shared-service/encoders.service';
+import { ReviewComponent } from './components/review/review.component';
 
 const appRoutes:Routes=[
   {path:'encoders',component:EncodersComponent},
@@ -26,6 +27,7 @@ const appRoutes:Routes=[
   {path:'users',component:UsersComponent},
   {path:'addAgent',component:AddAgentComponent},
   {path:'login',component:LoginComponent},
+  {path:'review',component:ReviewComponent},
   
   ];
 enableProdMode();
@@ -38,6 +40,7 @@ enableProdMode();
     UsersComponent,
     AddAgentComponent,
     LoginComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,
