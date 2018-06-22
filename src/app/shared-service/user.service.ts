@@ -6,6 +6,8 @@ import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable';
 import { HttpModule } from '@angular/http';
 import {HttpClient}from '@angular/common/http';
+import {LoggedinService}from './loggedin.service';
+import {User}from '../model/user';
 
 
 const httpOptions = {
@@ -14,18 +16,16 @@ const httpOptions = {
   @Injectable()
   export class UserService {
     //private baseUrl:string='http://localhost:8084/user';
-   // private user:User;
-     constructor(private httpClient:HttpClient) {}
+    
+     constructor(private httpClient:HttpClient,private _loggedinService:LoggedinService) {}
 
      //LOGIN ADMINA
     loginAdmin(email:any,password:any) {
-    this.httpClient.post('http://localhost:8085/reguser/loginAdmin',
+    return this.httpClient.post('http://localhost:8085/reguser/loginAdmin',
     {email:email,
      password:password
     })
-    .subscribe(
-    (data:any)=>{ alert(data.message); }
-    )
+    
   }
 
   //RAITING

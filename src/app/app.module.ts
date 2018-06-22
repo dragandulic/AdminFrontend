@@ -19,10 +19,13 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {AgentService} from './shared-service/agent.service';
 import {EncodersService} from './shared-service/encoders.service';
 import { ReviewComponent } from './components/review/review.component';
+import {LoggedinService} from './shared-service/loggedin.service';
+import {Ng2Webstorage} from 'ngx-webstorage';
+
 
 const appRoutes:Routes=[
   {path:'encoders',component:EncodersComponent},
-  {path:  '', redirectTo: '/encoders', pathMatch: 'full'},
+  {path:  '', redirectTo: '', pathMatch: 'full'},
   {path:'comments',component:CommentsComponent},
   {path:'users',component:UsersComponent},
   {path:'addAgent',component:AddAgentComponent},
@@ -40,7 +43,8 @@ enableProdMode();
     UsersComponent,
     AddAgentComponent,
     LoginComponent,
-    ReviewComponent,
+    ReviewComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -48,9 +52,10 @@ enableProdMode();
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    Ng2Webstorage
   ],
-  providers: [UserService,HttpModule,AgentService,EncodersService],
+  providers: [UserService,HttpModule,AgentService,EncodersService,LoggedinService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

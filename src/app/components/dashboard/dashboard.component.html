@@ -10,14 +10,21 @@
       <a class="navbar-brand" >Admin module</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
+      <ng-container *ngIf="nowAdmin!==null">
+      <ul class="nav navbar-nav" >
           <li><a class="nav-link" [routerLink]="['/encoders']" [routerLinkActive]="['is-active']">Encoders</a></li>
           <li><a class="nav-link" [routerLink]="['/comments']" [routerLinkActive]="['is-active']">Comments</a></li>
           <li><a class="nav-link" [routerLink]="['/users']" [routerLinkActive]="['is-active']">Users</a></li>
           <li><a class="nav-link" [routerLink]="['/addAgent']" [routerLinkActive]="['is-active']">Add Agent</a></li>  
       </ul>
+      </ng-container>
       <ul class="nav navbar-nav navbar-right">
+          <ng-container *ngIf="nowAdmin!==null">
+          <li><a [routerLink]="['/login']" [routerLinkActive]="['is-active']" (click)="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+          </ng-container>
+          <ng-container *ngIf="nowAdmin===null">
         <li><a [routerLink]="['/login']" [routerLinkActive]="['is-active']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ng-container>
       </ul>
     </div>
   </div>
