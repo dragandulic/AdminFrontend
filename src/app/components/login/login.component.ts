@@ -39,10 +39,14 @@ export class LoginComponent implements OnInit {
         if(data.message=="Admin is logged in"){
           
           this._loggedinService.setLocalStore(loginfields.email);
+          window.location.reload(true);
+          this._router.navigateByUrl("/");
+          
         }
       
       }
       );
   }
+
 
 }
